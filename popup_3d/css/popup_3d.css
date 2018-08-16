@@ -1,0 +1,119 @@
+body {
+    overflow: hidden;
+}
+
+#wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+    width: 100%;
+    height: 100%;
+    background: rgba(200, 200, 200, 0.3);
+    /*为包含块的子元素设置上景深效果*/
+    perspective: 500px;
+    /*创建有层级的3d景深（舞台）*/
+    transform-style: preserve-3d;
+}
+
+/*#wrap:hover .popup {*/
+/*!*元素旋转45°*!*/
+/*transform: rotateX(0deg) translateZ(100px);*/
+/*!*transform: rotate3D(0, 1, 1, -720deg);*!*/
+/*}*/
+
+#wrap > .popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+    width: 410px;
+    height: 250px;
+    border-radius: 10px;
+    background: white;
+    border: 1px solid #999;
+    /*默认元素不可见，在背景层级下面*/
+    transform: rotateX(180deg) translateZ(100px);
+    /*设置元素背面不可见*/
+    backface-visibility: hidden;
+    transition: 1.5s;
+}
+
+#wrap > .popup > .tip {
+    width: 80%;
+    height: 30px;
+    color: #666666;
+    font: bold 20px/30px "微软雅黑";
+    text-align: center;
+    margin: 80px auto 20px;
+}
+
+#wrap > .popup .btns {
+    width: 380px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#wrap > .popup .btns div {
+    width: 168px;
+    height: 30px;
+    border: 1px solid #666666;
+    color: #333;
+    text-align: center;
+    line-height: 30px;
+    float: left;
+    margin: 10px;
+    cursor: pointer;
+    transition: .5s;
+
+    /*设置元素内容不可被选中*/
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /*border-radius: 0px;*/
+}
+
+#wrap > .popup .btns div:hover {
+    color: white;
+    background: #999999;
+}
+
+#wrap > .popup .btns div:active {
+    color: white;
+    background: #333333;
+}
+
+/*召唤按钮*/
+#callPopup {
+
+    position: absolute;
+    top: 500px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+    width: 100px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    background: cornflowerblue;
+    box-shadow: 3px 3px 5px rgb(100, 149, 237);
+    cursor: pointer;
+}
+
+.clearfix, .clearfix:after, .clearfix:before {
+    display: table;
+    content: "";
+    clear: both;
+}
