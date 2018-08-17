@@ -12,11 +12,11 @@ body {
 
     width: 100%;
     height: 100%;
-    background: rgba(200, 200, 200, 0.3);
+    background: rgb(239, 239, 239);
     /*为包含块的子元素设置上景深效果*/
-    perspective: 500px;
+    perspective: 350px;
     /*创建有层级的3d景深（舞台）*/
-    transform-style: preserve-3d;
+    /*transform-style: preserve-3d;*/
 }
 
 /*#wrap:hover .popup {*/
@@ -27,7 +27,7 @@ body {
 
 #wrap > .popup {
     position: absolute;
-    top: 0;
+    top: -80%;
     left: 0;
     right: 0;
     bottom: 0;
@@ -38,11 +38,12 @@ body {
     border-radius: 10px;
     background: white;
     border: 1px solid #999;
-    /*默认元素不可见，在背景层级下面*/
-    transform: rotateX(180deg) translateZ(100px);
+
+    transform-origin: 100% 100% -300px;
+    transform: rotateX(90deg);
     /*设置元素背面不可见*/
-    backface-visibility: hidden;
-    transition: 1.5s;
+    /*backface-visibility: hidden;*/
+    transition: 1s;
 }
 
 #wrap > .popup > .tip {
@@ -110,6 +111,16 @@ body {
     background: cornflowerblue;
     box-shadow: 3px 3px 5px rgb(100, 149, 237);
     cursor: pointer;
+
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#callPopup:active {
+    color: #333333;
+    background: white;
 }
 
 .clearfix, .clearfix:after, .clearfix:before {
